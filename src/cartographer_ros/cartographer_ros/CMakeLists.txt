@@ -90,11 +90,11 @@ catkin_package(
   LIBRARIES ${PROJECT_NAME}
 )
 
-file(GLOB_RECURSE ALL_SRCS "cartographer_ros/*.cc" "cartographer_ros/*.h")
+file(GLOB_RECURSE ALL_SRCS "cartographer_ros/*.cc" "cartographer_ros/*.h") #循环迭代寻找.cc和.h文件，并将其存储在ALL_SRCS中
 file(GLOB_RECURSE ALL_TESTS "cartographer_ros/*_test.cc")
 file(GLOB_RECURSE ALL_EXECUTABLES "cartographer_ros/*_main.cc")
 file(GLOB_RECURSE ALL_GRPC_FILES "cartographer_ros/cartographer_grpc/*")
-list(REMOVE_ITEM ALL_SRCS ${ALL_TESTS})
+list(REMOVE_ITEM ALL_SRCS ${ALL_TESTS})                                    #从ALL_SRCS中移除ALL_TESTS
 list(REMOVE_ITEM ALL_SRCS ${ALL_EXECUTABLES})
 if (NOT ${BUILD_GRPC})
   list(REMOVE_ITEM ALL_SRCS ${ALL_GRPC_FILES})
