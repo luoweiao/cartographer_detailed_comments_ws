@@ -32,15 +32,15 @@
 // collect_metrics ：激活运行时度量的集合.如果激活, 可以通过ROS服务访问度量
 DEFINE_bool(collect_metrics, false,
             "Activates the collection of runtime metrics. If activated, the "
-            "metrics can be accessed via a ROS service.");
-DEFINE_string(configuration_directory, "",
+            "metrics can be accessed via a ROS service.");//参数名 默认值 参数说明信息
+DEFINE_string(configuration_directory, "",//配置文件夹地址（由launch文件传入）
               "First directory in which configuration files are searched, "
               "second is always the Cartographer installation to allow "
               "including files from there.");
 DEFINE_string(configuration_basename, "",
               "Basename, i.e. not containing any directory prefix, of the "
               "configuration file.");
-DEFINE_string(load_state_filename, "",
+DEFINE_string(load_state_filename, "",//加载pbstream文件地址
               "If non-empty, filename of a .pbstream file to load, containing "
               "a saved SLAM state.");
 DEFINE_bool(load_frozen_state, true,

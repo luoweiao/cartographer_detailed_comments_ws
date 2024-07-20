@@ -15,6 +15,7 @@
 -->
 
 <launch>
+
   <!-- bag的地址与名称 -->
   <arg name="bag_filename" default="$(env HOME)/bagfiles/rslidar-outdoor-gps-notf.bag"/>
   <!-- pbstream的地址与名称 -->
@@ -24,9 +25,10 @@
   <param name="/use_sim_time" value="true" />
 
   <!-- 启动cartographer -->
+  <!--(-configuration_directory 命令行标志符)-->
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_directory $(find cartographer_ros)/configuration_files 
           -configuration_basename lx_rs16_2d_outdoor_localization.lua
           -load_state_filename $(arg load_state_filename)"
       output="screen">

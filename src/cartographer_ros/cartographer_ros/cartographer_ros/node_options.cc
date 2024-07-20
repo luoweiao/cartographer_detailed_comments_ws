@@ -78,7 +78,7 @@ std::tuple<NodeOptions, TrajectoryOptions> LoadOptions(
   // 获取配置文件所在的目录
   auto file_resolver =
       absl::make_unique<cartographer::common::ConfigurationFileResolver>(
-          std::vector<std::string>{configuration_directory});
+          std::vector<std::string>{configuration_directory});//仅使用configuration_directory这一个元素进行初始化
         
   // 读取配置文件内容到code中
   const std::string code =
